@@ -159,6 +159,8 @@ let g:neocomplcache_sources_list =
       \ get(g:, 'neocomplcache_sources_list', {})
 let g:neocomplcache_disabled_sources_list =
       \ get(g:, 'neocomplcache_disabled_sources_list', {})
+let g:neocomplcache_allow_multibyte =
+      \ get(g:, 'neocomplcache_allow_multibyte', 0)
 if exists('g:neocomplcache_source_disable')
   let g:neocomplcache_disabled_sources_list._ =
         \ keys(filter(copy(g:neocomplcache_source_disable), 'v:val'))

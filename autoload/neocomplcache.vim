@@ -256,8 +256,9 @@ function! neocomplcache#is_eskk_convertion(cur_text) "{{{
         \             g:eskk#preedit#PHASE_NORMAL
 endfunction"}}}
 function! neocomplcache#is_multibyte_input(cur_text) "{{{
-  return (exists('b:skk_on') && b:skk_on)
-        \     || char2nr(split(a:cur_text, '\zs')[-1]) > 0x80
+  return !g:neocomplcache_allow_multibyte &&
+        \ ((exists('b:skk_on') && b:skk_on)
+        \  || char2nr(split(a:cur_text, '\zs')[-1]) > 0x80)
 endfunction"}}}
 function! neocomplcache#is_text_mode() "{{{
   let neocomplcache = neocomplcache#get_current_neocomplcache()
